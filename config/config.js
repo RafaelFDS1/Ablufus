@@ -1,10 +1,15 @@
 import { REST, Routes, SlashCommandBuilder } from "discord.js";
-import ping from "./ping/ping.js";
+import ablufus from "../commands/ablufus/ablufus.js";
+import ping from "../commands/ping/ping.js";
 
 const commands = [
   {
     name: "ping",
     description: "Replies with Pong!",
+  },
+  {
+    name: "ablufus",
+    description: "Call ablufus",
   },
 ];
 
@@ -26,6 +31,7 @@ const reloadCommands = async (envs) => {
 
 const load = (client) => {
   ping(client);
+  ablufus(client);
 };
 
 export { load, reloadCommands };

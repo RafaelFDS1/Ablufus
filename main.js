@@ -1,6 +1,6 @@
 import { Client, Events, GatewayIntentBits } from "discord.js";
 import "dotenv/config";
-import { load, reloadCommands } from "./commands/commands.js";
+import { load, reloadCommands } from "./config/config.js";
 
 const envs = process.env;
 const client = new Client({ intents: [GatewayIntentBits.Guilds] });
