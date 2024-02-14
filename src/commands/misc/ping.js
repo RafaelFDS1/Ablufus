@@ -1,12 +1,16 @@
 module.exports = {
   name: "ping",
-  description: "Replies with Pong!",
-  // devOnly: true,
-  testOnly: true,
-  // options: Object[],
-  // deleted: Boolean,
+  description: "Replies with the bot ping.",
+  devOnly: true,
+  callback: async (client, interaction) => {
+    await interaction.deferReply();
 
-  callback: (client, interaction) => {
-    interaction.reply(`Pong! ${client.ws.ping}ms`);
+    const reply = await interaction.fetchReply();
+
+    const ping = reply.createdTimestamp - interaction.createdTimestamp;
+
+    interaction.editReply(
+      `Pong! Client ${ping}ms | Websocket: ${client.ws.ping}ms`
+    );
   },
 };
